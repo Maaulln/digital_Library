@@ -1,8 +1,7 @@
 export const dbConfig = {
-  host: "localhost",
+  host: "mysql.railway.internal",
   port: 3306,
   user: "root",
-  password: "",
-  database: "my_library",
-  socketPath: "/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock",
+  password: "GCOlUjpVfCcLAuYhTktiXiBDkEsCvMMR",
+  database: "railway",
 };
