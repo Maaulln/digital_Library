@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import mysql from "mysql2/promise";
-import { dbConfig } from "../../database-config";
+import { dbConfig } from "../database-config";
 
 export async function POST(request) {
   try {
