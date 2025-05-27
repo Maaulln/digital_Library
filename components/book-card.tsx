@@ -46,6 +46,8 @@ export default function BookCard({ book: initialBook }: BookCardProps) {
       // Cek status response
       if (!response.ok) {
         throw new Error(data.message || "Failed to borrow book");
+      } else if (response.ok && data.success) {
+        console.log("Book borrowed successfully:", data);
       }
 
       // Perbarui state lokal buku

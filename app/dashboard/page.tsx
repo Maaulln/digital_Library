@@ -320,13 +320,6 @@ export default function MemberDashboard() {
 
         {/* Recommendation Books with responsive styling */}
 <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 md:p-8 transition-all duration-300 hover:shadow-2xl mb-8 sm:mb-12">
-          {/* <div className="flex justify-between items-center mb-4 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Recommended For You</h2>
-            <button className="text-emerald-600 hover:text-emerald-800 flex items-center font-medium transition-all text-sm sm:text-base">
-              View all <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
-            </button>
-          </div> */}
-          
           {/* The RecommendationBooks component should be updated separately to be responsive */}
           <RecommendationBooks />
         </div>
