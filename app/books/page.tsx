@@ -34,6 +34,7 @@ export default function BooksCatalog() {
     "Fantasy",
     "Mystery",
     "Romance",
+    "Technology",
   ];
 
   useEffect(() => {
