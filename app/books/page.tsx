@@ -15,12 +15,14 @@ interface Book {
   available: boolean;
   cover_image: string;
   stock: number;
+  publication_year: number;
 }
 
 export default function BooksCatalog() {
   const [books, setBooks] = useState<Book[]>([]);
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchYear, setSearchYear] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const categories = [
@@ -37,7 +39,20 @@ export default function BooksCatalog() {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("/api/books");
+        let url = "/api/books";
+        const params = [];
+        if (searchQuery.trim() !== "") {
+          params.push(`category=${encodeURIComponent(searchQuery)}`);
+        }
+        if (searchYear.trim() !== "") {
+          params.push(`year=${encodeURIComponent(searchYear)}`);
+        }
+        if (params.length > 0) {
+          url += "?" + params.join("&");
+        }
+        console.log("Fetching books with URL:", url);
+
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error("Failed to fetch books");
@@ -54,10 +69,10 @@ export default function BooksCatalog() {
     };
 
     fetchBooks();
-  }, []);
+  }, [searchQuery, searchYear, setBooks]);
 
   useEffect(() => {
-    if (searchQuery.trim() === "") {
+    if (searchQuery.trim() === "" && searchYear.trim() === "") {
       setFilteredBooks(books);
       return;
     }
@@ -67,14 +82,19 @@ export default function BooksCatalog() {
       (book) =>
         book.title.toLowerCase().includes(query) ||
         book.author.toLowerCase().includes(query) ||
-        book.category.toLowerCase().includes(query)
+        book.category.toLowerCase().includes(query) ||
+        (searchYear.trim() !== "" && book.publication_year === parseInt(searchYear))
     );
 
     setFilteredBooks(filtered);
-  }, [searchQuery, books]);
+  }, [searchQuery, searchYear, books]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
+  };
+
+  const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchYear(e.target.value);
   };
 
   return (
@@ -87,14 +107,24 @@ export default function BooksCatalog() {
         <h1 className="text-4xl font-bold text-gray-800 mb-8">Books Catalog</h1>
 
         {/* Search Bar */}
-        <div className="mb-6 relative group">
-          <div className="relative">
+        <div className="mb-6 relative group flex gap-4">
+          <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <Input
               className="pl-12 py-6 border-2 border-gray-200 bg-gray-50 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all text-lg"
               placeholder="Search by title, author, or category..."
               value={searchQuery}
               onChange={handleSearch}
+            />
+          </div>
+          <div className="relative w-40">
+            <Input
+              type="number"
+              min={0}
+              className="py-6 border-2 border-gray-200 bg-gray-50 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all text-lg"
+              placeholder="Search by year..."
+              value={searchYear}
+              onChange={handleYearChange}
             />
           </div>
         </div>
