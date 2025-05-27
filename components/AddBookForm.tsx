@@ -75,7 +75,7 @@ export default function AddBookForm({ onSuccess, onCancel, bookToEdit }: AddBook
 
     // Normalize coverImage before submit
     let normalizedCoverImage = coverImage
-    if (coverImage && !coverImage.startsWith("/uploads/") && !coverImage.startsWith("/")) {
+    if (coverImage && !coverImage.startsWith && !coverImage.startsWith("/")) {
       normalizedCoverImage = `/uploads/${coverImage}`
     }
 
