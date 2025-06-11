@@ -76,9 +76,9 @@ npm start
 - `styles/` — File CSS global
 
 ## Di Buat Oleh
-38_MaulanaChandraIrawan_ITB
-49_AhmadFikriRamadhan_ITB
-56_AhmadSyauqiAlFarisi_ITB
+- 38_MaulanaChandraIrawan_ITB
+- 49_AhmadFikriRamadhan_ITB
+- 56_AhmadSyauqiAlFarisi_ITB
 
 ---
 
