@@ -116,9 +116,6 @@ importers:
       lucide-react:
         specifier: ^0.454.0
         version: 0.454.0(react@18.3.1)
-      midtrans-client:
-        specifier: ^1.4.2
-        version: 1.4.2
       mysql2:
         specifier: latest
         version: 3.14.1
@@ -1615,9 +1612,6 @@ packages:
   micromatch@4.0.8:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
-
-  midtrans-client@1.4.2:
-    resolution: {integrity: sha512-hGT6UDF6WsmOprJYdgxReT5qxOPj+9VGVbJTe6txYICkadI01yC1ApBlkf+5AH/2v4fWNo03421VVpNfJDFAyg==}
 
   minimatch@9.0.5:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
@@ -3419,12 +3413,6 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  midtrans-client@1.4.2:
-    dependencies:
-      axios: 0.26.1
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - debug
 
   minimatch@9.0.5:
     dependencies:
