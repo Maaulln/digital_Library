@@ -75,9 +75,10 @@ npm start
 - `public/` — File statis (gambar, dll)
 - `styles/` — File CSS global
 
-## Kontribusi
-
-Kontribusi sangat terbuka! Silakan buat pull request atau buka issue untuk diskusi lebih lanjut.
+## Di Buat Oleh
+38_MaulanaChandraIrawan_ITB
+49_AhmadFikriRamadhan_ITB
+56_AhmadSyauqiAlFarisi_ITB
 
 ---
 
