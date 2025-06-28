@@ -61,7 +61,7 @@ Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/username-anda/digital-library.git
+git clone https://github.com/Maaulln/digital_Library
 cd digital-library
 ```
 
